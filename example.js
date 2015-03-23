@@ -6,6 +6,5 @@ var options = {
 };
 
 new Nightmare(options)
-	.goto('http://localhost:106/Explorer/SRCHxGOV.aspx')
-	.click('#SetUUID')
+	.goto('http://google.com')
 	.wait()
