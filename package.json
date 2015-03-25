@@ -17,7 +17,7 @@
     "test": "tests"
   },
   "peerDependencies": {
-    "nightmare": "^1.7.0",
+    "nightmare": "^1.7.0"
   },
   "repository": {
     "type": "git",
