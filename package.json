@@ -1,6 +1,6 @@
 {
   "name": "nightmare-xpath",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nightmare plugin to select nodes by xpath expression.",
   "main": "index.js",
   "scripts": {},
@@ -12,5 +12,23 @@
   "devDependencies": {
     "phantomjs-bin": "^1.0.1",
     "tape": "^3.5.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "peerDependencies": {
+    "nightmare": "^1.7.0",
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unlight/nightmare-xpath.git"
+  },
+  "keywords": [
+    "nightmare",
+    "xpath"
+  ],
+  "bugs": {
+    "url": "https://github.com/unlight/nightmare-xpath/issues"
+  },
+  "homepage": "https://github.com/unlight/nightmare-xpath"
 }
