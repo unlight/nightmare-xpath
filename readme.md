@@ -8,7 +8,7 @@ This will install plugin `nightmare-xpath` for Nightmare 2.X:
 ```sh
 npm install --save nightmare-xpath
 ```
-**Note:** If you are looking plugin for Nightmare 1.X, use then:
+**Note:** If you are looking for plugin for Nightmare 1.X, then use:
 ```sh
 npm install nightmare-xpath@1
 ```
@@ -24,9 +24,9 @@ co(function*() {
 	var links = yield Nightmare()
 		.goto("http://example.com/")
 		.xpath("//a[@href]", function(node) {
-			// We can not return DOM element to nodejs, 
+			// We cannot return DOM element to nodejs, 
 			// we must return serializable object or primitive.
-			// If fucntion omitted, node.toString() will be used.
+			// If function is omitted, node.toString() will be used.
 			return {
 				href: node.href,
 				innerText: node.innerText
@@ -37,3 +37,27 @@ co(function*() {
 	console.log(links);
 });
 ```
+
+API
+---
+`xpath(selector: string, handler?: (Node: node) => any): Array<any>`
+
+#### selector
+Type: `string`
+
+XPath expression.
+
+#### handler
+Type: `function`  
+Optional: Yes  
+Signature: `(Node: node) => any`
+
+This function be called on each result of `XPathResult`.
+We cannot return DOM element to nodejs, 
+we must return serializable object or primitive.
+If function is omitted, node.toString() will be used.
+
+
+RESOURCES
+---------
+* https://developer.mozilla.org/ru/docs/Web/API/Document/evaluate
