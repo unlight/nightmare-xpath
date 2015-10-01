@@ -1,23 +1,21 @@
 {
   "name": "nightmare-xpath",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Nightmare plugin to select nodes by xpath expression.",
   "main": "index.js",
   "scripts": {},
   "author": "S",
   "license": "MIT",
   "peerDependencies": {
-    "nightmare": "1.X.X"
+    "nightmare": "2.X"
   },
   "devDependencies": {
+    "co": "^4.6.0",
     "phantomjs-bin": "^1.0.1",
     "tape": "^3.5.0"
   },
   "directories": {
     "test": "tests"
-  },
-  "peerDependencies": {
-    "nightmare": "^1.7.0"
   },
   "repository": {
     "type": "git",
