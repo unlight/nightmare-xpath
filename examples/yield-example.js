@@ -3,17 +3,21 @@ var Nightmare = require("nightmare");
 var dirname = require("path").dirname;
 var phantomjs = require("phantomjs-bin");
 var options = {
-	phantomPath: dirname(phantomjs.path) + "/"
+	// show: true,
+	// phantomPath: dirname(phantomjs.path) + "/"
 };
 require("./.."); // xpath function will be added to prototype.
 
 co(function*() {
-	var links = yield Nightmare(options)
+	var selector = 'h1';
+	var text = yield Nightmare(options)
 		.goto("http://example.com/")
-		.xpath("//a[@href]")
-		.end();
-	console.log("Found %d links:", links.length);
-	console.log(links);
+		.evaluate(function(selector) {
+			// now we're executing inside the browser scope.
+			return document.querySelector(selector).innerText;
+		}, selector) // <-- that's how you pass parameters from Node scope to browser scope
+		.end()
+	console.log(text);
 }).catch(function(err) {
-	console.error(err);
+	console.log(err);
 });

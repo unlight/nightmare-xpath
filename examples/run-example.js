@@ -9,16 +9,14 @@ require("./.."); // xpath function will be added to prototype.
 
 Nightmare(options)
 	.goto("http://example.com/")
-	.xpath("//a[@href]", function(node) {
-		// We can not return DOM element to nodejs, 
-		// we must return serializable object or primitive.
-		return {
-			href: node.href,
-			innerText: node.innerText
-		};
+	.evaluate(function() {
+		// throw new Error('Err!');
+		return document.title;
 	})
-	.end(function(err, result) {
-		if (err) throw err;
-		console.log("Found %d links:", result.length);
-		console.log(result);
+	.end()
+	.then(result => {
+		console.log('result', result);
+	})
+	.catch(err => {
+		console.log('err ', err);
 	});
