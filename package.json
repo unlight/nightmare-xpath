@@ -1,6 +1,6 @@
 {
   "name": "nightmare-xpath",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Nightmare plugin to select nodes by xpath expression.",
   "main": "index.js",
   "scripts": {},
