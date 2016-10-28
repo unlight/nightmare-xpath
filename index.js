@@ -23,7 +23,7 @@ function serialize() {
 }
 
 function action(selector, handler, done) {
-	this._evaluate(function remoteExec(serializedArgs) {
+	this.evaluate_now(function remoteExec(serializedArgs) {
 		var args = JSON.parse(serializedArgs);
 		var documentXpath = new Function("return " + args[0])();
 		var selector = args[1];
