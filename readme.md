@@ -1,5 +1,7 @@
 nightmare-xpath
 ---------------
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/unlight/nightmare-xpath.svg)](https://greenkeeper.io/)
 Nightmare plugin to select nodes by xpath expression.
 
 INSTALL
