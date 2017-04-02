@@ -11,8 +11,8 @@
   },
   "devDependencies": {
     "co": "^4.6.0",
-    "phantomjs-bin": "^1.0.1",
-    "tape": "^3.5.0"
+    "phantomjs-bin": "^2.1.1",
+    "tape": "^4.6.3"
   },
   "directories": {
     "test": "tests"
