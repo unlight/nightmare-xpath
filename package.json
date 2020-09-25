@@ -1,32 +1,60 @@
 {
   "name": "nightmare-xpath",
-  "version": "2.0.2",
-  "description": "Nightmare plugin to select nodes by xpath expression.",
+  "version": "0.0.0-dev",
+  "description": "Nightmare plugin to select nodes by xpath expression",
   "main": "index.js",
-  "scripts": {},
-  "author": "S",
+  "scripts": {
+    "test": "npm run eslint && npm run test:cov",
+    "test:r": "mocha src/**/*.spec.js",
+    "test:cov": "npm run test:r -- --no-timeouts",
+    "test:w": "mocha --watch-files src/**/*.js --watch src/**/*.spec.js",
+    "test:d": "node --inspect -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts --watch-files src/**/*.js --watch src/**/*.spec.js",
+    "test:brk": "node --inspect-brk -r ts-node/register/transpile-only node_modules/mocha/bin/_mocha --no-timeouts src/**/*.spec.js",
+    "eslint:w": "watchexec -w src \"npm run eslint\"",
+    "eslint": "node node_modules/eslint/bin/eslint \"src/**/*.{js,ts,tsx}\"",
+    "eslint:fix": "npm run eslint -- --fix",
+    "build": "sh Taskfile bundle_cli"
+  },
   "license": "MIT",
   "peerDependencies": {
-    "nightmare": "2.X"
+    "nightmare": "3"
   },
   "devDependencies": {
-    "co": "^4.6.0",
-    "phantomjs-bin": "^1.0.1",
-    "tape": "^3.5.0"
-  },
-  "directories": {
-    "test": "tests"
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@types/mocha": "^8.0.3",
+    "eslint": "^7.9.0",
+    "eslint-plugin-only-warn": "^1.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "eslint-plugin-unicorn": "^22.0.0",
+    "husky": "^4.3.0",
+    "mocha": "^8.1.3",
+    "nightmare": "^3.0.2",
+    "precise-commits": "^1.0.2",
+    "prettier": "^2.1.2",
+    "semantic-release": "^17.1.2",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3",
+    "watchexec-bin": "^1.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/unlight/nightmare-xpath.git"
   },
   "keywords": [
+    "nightmare-plugin",
     "nightmare",
     "xpath"
   ],
   "bugs": {
     "url": "https://github.com/unlight/nightmare-xpath/issues"
   },
-  "homepage": "https://github.com/unlight/nightmare-xpath"
+  "homepage": "https://github.com/unlight/nightmare-xpath",
+  "husky": {
+    "hooks": {
+      "pre-commit": "precise-commits",
+      "commit-msg": "sh Taskfile commit_msg"
+    }
+  }
 }

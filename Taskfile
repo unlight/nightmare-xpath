@@ -1,0 +1,24 @@
+#!/bin/bash
+PATH="$PWD/node_modules/.bin":$PATH
+set -e
+
+bundle_cli() {
+    set -x
+    rm -rf dist
+    mkdir dist
+    cp src/* dist
+    cp -fv README.md LICENSE package.json dist
+    cd dist
+    /usr/bin/find . -name '*.spec.js' | xargs rm -rf
+    cd ..
+}
+
+commit_msg() {
+    if git-branch-is -q -r "^(master)"; then
+        commitlint -E HUSKY_GIT_PARAMS
+    else
+        true
+    fi
+}
+
+"$@"
